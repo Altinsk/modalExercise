@@ -12,8 +12,15 @@ const openModal = function () {
   overlay.classList.remove('hidden');
 };
 
-// Function close modal
-const closeModal = function () {
+// Esc to close modal
+const onEsc = function (event) {
+  if (event.key === 'Escape') {
+    closeModal();
+  }
+};
+
+// Click to close modal
+const closeModal = function (e) {
   modal.classList.add('hidden');
   overlay.classList.add('hidden');
 };
@@ -26,3 +33,6 @@ for (let i = 0; i < btnShowModal.length; i++) {
 // Closing modal
 btnCloseModal.addEventListener('click', closeModal);
 overlay.addEventListener('click', closeModal);
+
+//Closing modal when ESC is pressed
+window.addEventListener('keydown', onEsc);
